@@ -147,7 +147,7 @@ global:
     container_securityContext:
       privileged: false
     # Possible values: “S” (default), “M”, “L”
-    env_size: "M"
+    env_size: "L"
     shmSize: ""        #optional override for /dev/shm size (e.g. "512Mi")
     image:
       repository: database
