@@ -91,7 +91,7 @@ global:
   # - gs: Giant Swarm platform
   # - k3s: k3s Kubernetes platform
   # - mke: Mirantis Kubernetes Engine
-  platform: ""
+  platform: "k3s"
 
   db:
     external:
