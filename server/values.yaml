@@ -331,6 +331,7 @@ gateway:
     #   secretName: name
     #   secretKey: key
 web:
+  skipHostPort: true
   replicaCount: 1
   logLevel:
   image:
