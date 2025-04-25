@@ -12,7 +12,7 @@ imageCredentials:
   # If imageCredentials.create=create and imageCredentials.name defined
   # then will be created a secret with name provided name
   create: false
-  name:
+  name: aqua-registry
   repositoryUriPrefix: "registry.aquasec.com" # for dockerhub - "docker.io"
   registry: "registry.aquasec.com" #REQUIRED only if create is true, for dockerhub - "index.docker.io/v1/"
   username: ""
@@ -31,7 +31,7 @@ imageCredentials:
 # - gs: Giant Swarm platform
 # - k3s: k3s Kubernetes platform
 # - mke: Mirantis Kubernetes Engine
-platform: ""
+platform: "k3s"
 
 clusterRole:
   roleRef: ""
@@ -60,11 +60,11 @@ directCC:
   # then will be created a serviceAccount with name provided name
 serviceAccount:
   create: false
-  name:
+  name: aqua-sa
 
 server:
   scheme: "http" #specify the schema for the server host URL, default it is http
-  serviceName: "aqua-console-svc" # example
+  serviceName: "aqua-server-console-svc" # example
   port: 8080
 
 # Additional certificates that the server should trust, such as a network proxy
@@ -115,9 +115,9 @@ password: ""        # password for the scanner user you can also use "passwordSe
 scannerToken: ""    # token used for deploying USE scanners
 
 scannerTokenSecret:
-  enable: false   # change it to true for loading the scanner token from secrets
-  secretName: ""  # secret name for the scanner token secret
-  tokenKey: ""    # scanner token key name
+  enable: true   # change it to true for loading the scanner token from secrets
+  secretName: "aqua-scanner-secret"  # secret name for the scanner token secret
+  tokenKey: "scanner-token"    # scanner token key name
 
 # Loading scanner user & password from secret
 scannerUserSecret:
