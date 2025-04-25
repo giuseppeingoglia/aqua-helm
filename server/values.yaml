@@ -355,14 +355,14 @@ web:
       - name: aqua-web
         port: 8080
         targetPort: 8080
-        nodePort:
+        nodePort: 30080
         protocol: TCP
         # uncomment to support appProtocol for SCP L7 LBs.
 #        appProtocol: http
       - name: aqua-web-ssl
-        port: 443
+        port: 444
         targetPort: 8443
-        nodePort:
+        nodePort: 30444
         protocol: TCP
         # uncomment to support appProtocol for SCP L7 LBs.
 #        appProtocol: http
