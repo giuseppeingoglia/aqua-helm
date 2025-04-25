@@ -60,7 +60,7 @@ vaultAnnotations:
 
 admin:
   createSecret: false
-  secretName: aqua-console-secrets
+  secretName: ""
   token: ""
   password: ""
 
