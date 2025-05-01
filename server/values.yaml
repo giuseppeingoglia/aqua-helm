@@ -32,7 +32,7 @@ serviceAccount:
 
 # enable only one of the modes
 clustermode: ""
-activeactive: ""
+activeactive: "true"
 
 # Hashicorp Vault for secrets management
 # Below vaultSecret and vaultAnnotations section helps to set vault sidecar/init-container agents to load secrets securely
