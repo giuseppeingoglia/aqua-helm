@@ -126,7 +126,7 @@ global:
       # Specify the Password Secret name used for pubsub db password
       dbPubsubPasswordName: "aqua-server-database-password"
       # Specify the pubsub db password key name stored in the #PubsubPasswordName secret
-      dbPubsubPasswordKey: "pubsub-password"
+      dbPubsubPasswordKey: "db-password"
 
     ssl: false
     sslmode: require          # accepts: allow | prefer | require | verify-ca | verify-full (Default: Require)
