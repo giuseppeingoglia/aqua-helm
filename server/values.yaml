@@ -462,8 +462,10 @@ web:
 
   # extraEnvironmentVars is a list of extra environment variables to set in the web deployments.
   # https://docs.aquasec.com/docs/server-optional-variables
-  extraEnvironmentVars: {}
+  extraEnvironmentVars:
     # ENV_NAME: value
+    - name: AQUA_FF_OVERRIDES
+      value: '{"SLK-90858": true, "SLK-75036": true}'
 
   # extraSecretEnvironmentVars is a list of extra environment variables to set in the web deployments.
   # These variables take value from existing Secret objects.
