@@ -114,19 +114,19 @@ global:
 
     passwordFromSecret:
       # Enable if loading passwords for db and audit-db from secret
-      enabled: false
+      enabled: true
       # Specify the Password Secret name used for db password
-      dbPasswordName: ""
+      dbPasswordName: "aqua-server-database-password"
       # Specify the db password key name stored in the #dbPasswordName secret
-      dbPasswordKey: ""
+      dbPasswordKey: "db-password"
       # Specify the Password Secret name used for audit db password
-      dbAuditPasswordName: ""
+      dbAuditPasswordName: "aqua-server-database-password"
       # Specify the audit db password key name stored in the #dbAuditPasswordName secret
-      dbAuditPasswordKey: ""
+      dbAuditPasswordKey: "audit-password"
       # Specify the Password Secret name used for pubsub db password
-      dbPubsubPasswordName: ""
+      dbPubsubPasswordName: "aqua-server-database-password"
       # Specify the pubsub db password key name stored in the #PubsubPasswordName secret
-      dbPubsubPasswordKey: ""
+      dbPubsubPasswordKey: "pubsub-password"
 
     ssl: false
     sslmode: require          # accepts: allow | prefer | require | verify-ca | verify-full (Default: Require)
