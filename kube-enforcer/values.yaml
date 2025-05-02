@@ -12,14 +12,14 @@ global:
   # - gs: Giant Swarm platform
   # - k3s: k3s Kubernetes platform
   # - mke: Mirantis Kubernetes Engine
-  platform: ""
+  platform: "k3s"
   dnsNdots:
   enforcer:
     enabled: false
   gateway:
     # change address to gateway endpoint. For Saas use the hostname containing `-gw` 
     # from your onboarding email and switch port to 443
-    address: aqua-gateway-svc.aqua
+    address: aqua-server-gateway-svc.aqua
     port: 8443
   # Specifies the secret data for imagePullSecrets needed to fetch the private docker images
   imageCredentials:
@@ -53,9 +53,9 @@ global:
 # If serviceAccount.create=true and serviceAccount.name defined
 # then will be created a serviceAccount with name provided name
 serviceAccount:
-  create: true
+  create: false
   attachImagePullSecret: true
-  name: ""
+  name: "aqua-sa"
 
 # Replica count
 ke_ReplicaCount: "1"
@@ -68,7 +68,7 @@ aqua_cache_expiration_period: "60"
 # Kube-Enforcer Image
 image:
   repository: "kube-enforcer"
-  tag: "2022.4"
+  tag: "2022.4.760"
   pullPolicy: Always
 
 # MicroEnforcer & KubeBench custom image registry
@@ -81,7 +81,7 @@ me_ke_custom_registry:
 # Micro Enforcer Image
 microEnforcerImage:
   repository: "microenforcer"   # Default aqua registry MicroEnforcer repository name
-  tag: "2022.4"
+  tag: "2022.4.760"
 
 # KubeBench Image
 kubebenchImage:
@@ -97,7 +97,7 @@ fullnameOverride: "aqua-kube-enforcer"
 
 # Display a custom cluster name in the infrastructure tab of Aqua Enterprise
 # Follow https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names for naming conventions
-clusterName: "Default-cluster-name"
+clusterName: "clusterino"
 logicalName: ""
 logLevel: ""
 
@@ -113,7 +113,7 @@ skipNodes: ""
 # It will fail with following error. To solve it delete previously create secret kubectl delete secret aqua-kube-enforcer-certs -n aqua
 # Error: UPGRADE FAILED: error validating "": error validating data: unknown object type "nil" in Secret.data.ca.crt
 certsSecret:
-  autoGenerate: false
+  autoGenerate: true
   create: true
   annotations: {}
   # If you're using existing certs change the name to existing secret name
@@ -233,14 +233,14 @@ livenessProbe:
 ##   initialDelaySeconds: 60
 ##   periodSeconds: 30
 
-resources: {}
+resources:
   # Note: For recommendations please check the official sizing guide.
-  # requests:
-  #   cpu: 250m
-  #   memory: 0.2Gi
-  # limits:
-  #   cpu: 500m
-  #   memory: 1.5Gi
+   requests:
+     cpu: 750m
+     memory: 0.5Gi
+   limits:
+     cpu: 1500m
+     memory: 1Gi
 
 nodeSelector: {}
 tolerations: []
@@ -302,7 +302,7 @@ extraVolumeMounts: []
 extraVolumes: []
 
 starboard:
-  enabled: true
+  enabled: false
   # enable to true to manage starboard crds by Helm
   crds:
     enabled: true  
