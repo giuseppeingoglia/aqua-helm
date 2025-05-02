@@ -322,8 +322,9 @@ gateway:
 
   # extraEnvironmentVars is a list of extra environment variables to set in the gateway deployments.
   # https://docs.aquasec.com/docs/gateway-optional-variables
-  extraEnvironmentVars: {}
+  extraEnvironmentVars:
     # ENV_NAME: value
+    AQUA_FF_OVERRIDES: '{"SLK-90858": true, "SLK-75036": true}'
 
   # extraSecretEnvironmentVars is a list of extra environment variables to set in the gateway deployments.
   # These variables take value from existing Secret objects.
