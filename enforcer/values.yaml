@@ -13,10 +13,10 @@ global:
   # - gs: Giant Swarm platform
   # - k3s: k3s Kubernetes platform
   # - mke: Mirantis Kubernetes Engine
-  platform: ""
+  platform: "k3s"
   dnsNdots:
   enforcer:
-    enabled: false
+    enabled: true
   gateway:
     # change address to gateway endpoint. For Saas use the hostname containing `-gw`
     # from your onboarding email and switch port to 443
@@ -26,7 +26,7 @@ global:
     # change to true if deploying enforcer on new cluster or aqua-registry-secret secret doesn't exist.
     create: false
     # use it to overwrite the default secret name
-    name:
+    name: aqua-registry
     # for dockerhub - "docker.io"
     repositoryUriPrefix: "registry.aquasec.com"
     #REQUIRED only if create is true, for dockerhub - "index.docker.io/v1/"
@@ -39,7 +39,7 @@ serviceAccount:
   create: false
   attachImagePullSecret: true
   # use it to overwrite the default serviceAccount name
-  name:
+  name: aqua-sa
 
 clusterRole:
   roleRef: ""
@@ -76,7 +76,7 @@ enforcerToken: enforcer-token
 enforcerTokenSecretName: null
 enforcerTokenSecretKey: null
 
-logicalName:
+logicalName: "clusterino"
 nodeName:
 nameOverride:
 
@@ -116,7 +116,7 @@ multi_gates:
 
 image:
   repository: enforcer
-  tag: "2022.4"
+  tag: "2022.4.760"
   pullPolicy: Always
 
 restartPolicy: Always
@@ -138,12 +138,12 @@ readinessProbe:
   periodSeconds: 30
 resources: {}
   # Note: For recommendations please check the official sizing guide.
-  # requests:
-  #   cpu: 350m
-  #   memory: 0.512Gi
-  # limits:
-  #   cpu: 1500m
-  #   memory: 1.5Gi
+   requests:
+     cpu: 250m
+     memory: 0.350Gi
+   limits:
+     cpu: 400m
+     memory: 1Gi
 nodeSelector: {}
 tolerations: []
 podAnnotations: {}
