@@ -139,11 +139,11 @@ readinessProbe:
 resources:
   # Note: For recommendations please check the official sizing guide.
    requests:
-     cpu: 250m
-     memory: 0.350Gi
+     cpu: 500m
+     memory: 0.750Gi
    limits:
-     cpu: 400m
-     memory: 1Gi
+     cpu: 750m
+     memory: 1.25Gi
 nodeSelector: {}
 tolerations: []
 podAnnotations: {}
