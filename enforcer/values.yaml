@@ -136,7 +136,7 @@ readinessProbe:
     port: 8096
   initialDelaySeconds: 60
   periodSeconds: 30
-resources: {}
+resources:
   # Note: For recommendations please check the official sizing guide.
    requests:
      cpu: 250m
