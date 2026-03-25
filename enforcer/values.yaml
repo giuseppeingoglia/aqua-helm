@@ -154,7 +154,7 @@ affinity: {}
 
 dnsPolicy: "ClusterFirst"
 hostPID: "true"
-hostRunPath: ""
+hostRunPath: "/run/k3s"
 schedulerName: "default-scheduler"
 terminationGracePeriodSeconds: "30"
 
