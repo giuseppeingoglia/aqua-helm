@@ -13,7 +13,7 @@ global:
   # - gs: Giant Swarm platform
   # - k3s: k3s Kubernetes platform
   # - mke: Mirantis Kubernetes Engine
-  platform: "k8s"
+  platform: "k3s"
   dnsNdots:
   enforcer:
     enabled: true
