@@ -116,7 +116,7 @@ multi_gates:
 
 image:
   repository: enforcer
-  tag: "2022.4.760"
+  tag: "2022.4.836"
   pullPolicy: Always
 
 restartPolicy: Always
